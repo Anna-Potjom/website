@@ -1,0 +1,50 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-19db48cb13d-32b2ad7ffd1a9b1b": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "receptes_database",
+			"save-password": true,
+			"configuration": {
+				"database": "D:\\Anna_Potjomkina_12i1\\website\\receptes_database",
+				"url": "jdbc:sqlite:D:\\Anna_Potjomkina_12i1\\website\\receptes_database",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"properties": {
+					"foreign_keys": "true"
+				}
+			}
+		},
+		"sqlite_jdbc-19dd4adc716-4f836ad598359af": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": ".project",
+			"save-password": true,
+			"configuration": {
+				"database": "C:\\Users\\User\\OneDrive\\Documents\\Anna\\12i1\\Programmesana\\atzime4\\website\\.dbeaver\\.project",
+				"url": "jdbc:sqlite:C:\\Users\\User\\OneDrive\\Documents\\Anna\\12i1\\Programmesana\\atzime4\\website\\.dbeaver\\.project",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}

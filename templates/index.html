@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receptes</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    
+    <header>
+        <h1>Receptes</h1>
+        <nav>
+            <a href="/">Tavas iecienītākās receptes vienuviet</a>
+        </nav>
+    </header>
+
+    
+    <main class="grid">
+
+        {% for kategorija in kategorijas %}
+            <a href="/category/{{ kategorija['type2'] }}" class="card">
+                <img src="/static/images/{{ kategorija['type'] }}.jpg" alt="{{ kategorija['type'] }}">
+                <h2>{{ kategorija["type"] }}</h2>
+            </a>
+        {% endfor %}
+
+    </main>
+
+   
+    <footer>
+        <p>© 2026 Receptes</p>
+    </footer>
+
+</body>
+</html>
