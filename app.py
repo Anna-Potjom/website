@@ -17,16 +17,20 @@ def home():
     conn = get_db_connection() 
     kategorijas = conn.execute("SELECT * FROM categories").fetchall()
     conn.close()
-    return render_template("index.html", kategorijas=kategorijas)
+    return render_template("base.html", kategorijas=kategorijas)
 
 @app.route("/category/<type2>")
 def category(type2):
-    conn = get_db_connection() 
-    receptes = conn.execute("""SELECT * FROM recipes, categories WHERE categories.type2 = ?""",(type2,),).fetchall()
+    conn = get_db_connection()
+    receptes = conn.execute("""
+        SELECT *
+        FROM recipes
+        JOIN categories ON recipes.category_id = categories.id
+        WHERE categories.type2 = ?
+    """, (type2,)).fetchall()
     conn.close()
-    return render_template(f"{type2}.html",  receptes=receptes)
+    return render_template("category.html", receptes=receptes)
     
-
 
 if __name__ == "__main__":
     app.run(debug=True)

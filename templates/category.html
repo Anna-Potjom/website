@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for recepte in receptes %}
+    <div class="recipe">
+        <h3>{{ recepte["title"], recepte["nosaukums"] }}</h3>
+    </div>
+    {% endfor %}
+{% endblock %}

@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
     
     <header>
         <h1>Receptes</h1>
@@ -16,20 +15,18 @@
             <a href="/">Tavas iecienītākās receptes vienuviet</a>
         </nav>
     </header>
-
     
     <main class="grid">
-
-        {% for kategorija in kategorijas %}
-            <a href="/category/{{ kategorija['type2'] }}" class="card">
-                <img src="/static/images/{{ kategorija['type'] }}.jpg" alt="{{ kategorija['type'] }}">
-                <h2>{{ kategorija["type"] }}</h2>
-            </a>
-        {% endfor %}
-
+    {% block content %}
+    {% for kategorija in kategorijas %}
+        <a href="/category/{{ kategorija['type2'] }}" class="card">
+            <img src="/static/images/{{ kategorija['type'] }}.jpg" alt="{{ kategorija['type'] }}">
+            <h2>{{ kategorija["type"] }}</h2>
+        </a>
+    {% endfor %}
+    {% endblock %}
     </main>
 
-   
     <footer>
         <p>© 2026 Receptes</p>
     </footer>
