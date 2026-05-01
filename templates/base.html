@@ -15,17 +15,20 @@
             <a href="/">Tavas iecienītākās receptes vienuviet</a>
         </nav>
     </header>
+    <main class="main-content">
+    {% block content %}{% endblock %}
+    </main>
     
-    <main class="grid">
-    {% block content %}
+    <main1 class="grid">
     {% for kategorija in kategorijas %}
         <a href="/category/{{ kategorija['type2'] }}" class="card">
             <img src="/static/images/{{ kategorija['type'] }}.jpg" alt="{{ kategorija['type'] }}">
             <h2>{{ kategorija["type"] }}</h2>
         </a>
     {% endfor %}
-    {% endblock %}
-    </main>
+    </main1>
+
+    
 
     <footer>
         <p>© 2026 Receptes</p>

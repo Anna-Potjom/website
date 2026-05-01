@@ -1,21 +1,20 @@
 {
 	"folders": {},
 	"connections": {
-		"sqlite_jdbc-19dd4af9423-38ccadc617dfabcb": {
+		"sqlite_jdbc-19de36aae22-4f455f95fef6983f": {
 			"provider": "sqlite",
 			"driver": "sqlite_jdbc",
 			"name": "receptes_database",
 			"save-password": true,
 			"configuration": {
-				"database": "C:\\Users\\User\\OneDrive\\Documents\\Anna\\12i1\\Programmesana\\atzime4\\website\\receptes_database",
-				"url": "jdbc:sqlite:C:\\Users\\User\\OneDrive\\Documents\\Anna\\12i1\\Programmesana\\atzime4\\website\\receptes_database",
+				"database": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\website\\receptes_database",
+				"url": "jdbc:sqlite:C:\\Users\\User\\OneDrive\\Documents\\GitHub\\website\\receptes_database",
 				"configurationType": "MANUAL",
 				"type": "dev",
 				"closeIdleConnection": true
 			}
 		}
 	},
-	"virtual-models": {"sqlite_jdbc-19dd4af9423-38ccadc617dfabcb":{":ingredients":{"properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202604282328\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"sqlite_jdbc-19dd4af9423-38ccadc617dfabcb\"\u003e\u003centity id\u003d\"1\" name\u003d\"ingredients\" fq-name\u003d\"ingredients\" order\u003d\"0\" color-bg\u003d\"255,128,64\" x\u003d\"101\" y\u003d\"46\"/\u003e\u003centity id\u003d\"2\" name\u003d\"recipes\" fq-name\u003d\"recipes\" order\u003d\"1\" border-width\u003d\"3\" x\u003d\"327\" y\u003d\"108\"/\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations\u003e\u003crelation name\u003d\"ingredients_recipes_FK\" fq-name\u003d\"ingredients.ingredients_recipes_FK\" type\u003d\"fk\" pk-ref\u003d\"2\" fk-ref\u003d\"1\"/\u003e\u003c/relations\u003e\u003c/diagram\u003e"}}}}},
 	"connection-types": {
 		"dev": {
 			"name": "Development",

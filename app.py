@@ -22,14 +22,26 @@ def home():
 @app.route("/category/<type2>")
 def category(type2):
     conn = get_db_connection()
+
     receptes = conn.execute("""
         SELECT *
         FROM recipes
         JOIN categories ON recipes.category_id = categories.id
         WHERE categories.type2 = ?
     """, (type2,)).fetchall()
+
+    ingredients = conn.execute("""
+        SELECT *
+        FROM ingredients
+    """).fetchall()
+
     conn.close()
-    return render_template("category.html", receptes=receptes)
+
+    return render_template(
+        "category.html",
+        receptes=receptes,
+        ingredients=ingredients
+    )
     
 
 if __name__ == "__main__":
