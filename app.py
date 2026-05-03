@@ -30,16 +30,37 @@ def category(type2):
         WHERE categories.type2 = ?
     """, (type2,)).fetchall()
 
-    ingredients = conn.execute("""
-        SELECT *
-        FROM ingredients
-    """).fetchall()
-
     conn.close()
 
     return render_template(
         "category.html",
         receptes=receptes,
+    )
+
+@app.route("/recepte/<int:id>")
+def recepte(id):
+    conn = get_db_connection()
+
+    # get ONE recipe
+    recipe = conn.execute("""
+        SELECT *
+        FROM recipes
+        JOIN categories ON recipes.category_id = categories.id
+        WHERE recipes.id = ?
+    """, (id,)).fetchone()
+
+    # get ingredients ONLY for this recipe
+    ingredients = conn.execute("""
+        SELECT *
+        FROM ingredients
+        WHERE recipe_id = ?
+    """, (id,)).fetchall()
+
+    conn.close()
+
+    return render_template(
+        "recepte.html",
+        recipe=recipe,
         ingredients=ingredients
     )
     

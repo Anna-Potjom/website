@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="recipe-list">
+
+    <div class="recipe-item">
+
+        <div class="recipe-img-two">
+            <img src="/static/images/{{ recipe['img_text'] }}" alt="{{ recipe['title'] }}">
+        </div>
+
+        <div class="recipe-text">
+            <h2>{{ recipe["title"] }}</h2>
+
+            <p>{{ recipe["recipie"] }}</p>
+
+            <h3>Sastāvdaļas:</h3>
+
+            <ul class="ingredients">
+                {% for ing in ingredients %}
+                    <li>
+                        <span class="ing-name">{{ ing["ingredient"] }}</span>
+                        <span class="ing-amount">
+                            {{ ing["amount"] }} {{ ing["unit"] }}
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

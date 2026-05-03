@@ -4,6 +4,7 @@
 <div class="recipe-list">
 
     {% for recepte in receptes %}
+    <a href="/recepte/{{ recepte['id'] }}">
     <div class="recipe-item {% if loop.index0 % 2 == 1 %}reverse{% endif %}">
 
         <div class="recipe-img">
@@ -13,20 +14,10 @@
             <h2>{{ recepte["title"] }}</h2>
             <p>{{ recepte["recipie"] }}</p>
             <p></p>
-            <p>Sastāvdaļas:</p>
-            <ul class="ingredients">
-                {% for sastavdala in ingredients %}
-                    {% if sastavdala["recipe_id"] == recepte["id"] %}
-                        <li>
-                            <span class="ing-name">{{ sastavdala["ingredient"] }}</span>
-                            <span class="ing-amount">{{ sastavdala["amount"] }} {{ sastavdala["unit"] }}</span>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
         </div>
 
     </div>
+    </a>
     {% endfor %}
 
 </div>

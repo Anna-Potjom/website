@@ -175,8 +175,17 @@ footer {
     background: white;
     border-radius: 25px;
     overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.recipe-item:hover {
+    transform: translateY(-8px); /* moves up */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12); /* adds depth */
 }
 
 /* THIS is what flips layout */
@@ -188,18 +197,25 @@ footer {
    IMAGE
 ========================= */
 
-.recipe-img {
+.recipe-img{
     flex: 1.2;
-    max-height: 800px;
+    height: 400px;        /* force consistent height */
+    overflow: hidden;
+}
+.recipe-img-two {
+    flex: 1.2;
+    height: 800px;        /* force consistent height */
     overflow: hidden;
 }
 
-.recipe-img img {
+.recipe-img img,
+.recipe-img-two img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;    /* THIS is the key fix */
+    object-position: center;
+    display: block;
 }
-
 /* =========================
    TEXT
 ========================= */
@@ -246,7 +262,10 @@ footer {
     }
 }
 
-
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
 .ingredients {
     list-style: none;
