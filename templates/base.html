@@ -11,12 +11,23 @@
     
     <header class="main-header">
 
-    <h1>Receptes</h1>
-    <p class="header-subtitle">
-        Tavas iecienītākās receptes vienuviet
-    </p>
+        <!-- NAVIGATION (top right) -->
+        <div class="header-nav">
+            <a href="/" class="nav-link">Sākums</a>
+            <a href="/category/deserti" class="nav-link">Deserti</a>
+            <a href="/category/pamatedieni" class="nav-link">Pamatēdieni</a>
+            <a href="/category/uzkodas" class="nav-link">Uzkodas</a>
+            <a href="/category/zupas" class="nav-link">Zupas</a>
+        </div>
 
-</header>
+        <!-- CENTER TITLE -->
+        <h1>Receptes</h1>
+
+        <p class="header-subtitle">
+            Tavas iecienītākās receptes vienuviet
+        </p>
+
+    </header>
     <main class="main-content">
     {% block content %}{% endblock %}
     </main>
