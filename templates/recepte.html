@@ -33,7 +33,9 @@
 </div>
 
 <div class="recipe-list">
+
 <h3>Komentāri:</h3>
+
 <form action="/comment/create" method="POST">
     <input type="hidden" name="recipe_id" value="{{ recipe['id'] }}">
 
@@ -50,6 +52,7 @@
 {% for comment in comments %}
 
     <div class="comment-box">
+
         <p><strong>{{ comment["user_id"] }}</strong></p>
         <p>{{ comment["comment_text"] }}</p>
         <p>{{ comment["rating"] }}/5</p>
@@ -58,10 +61,16 @@
             <button>Dzēst</button>
         </form>
 
+        <form action="/comment/update/{{ comment['id'] }}" method="POST">
+            <textarea name="comment_text">{{ comment["comment_text"] }}</textarea>
+            <input type="number" name="rating" value="{{ comment["rating"] }}">
+            <button>Labot</button>
+        </form>
+
     </div>
 
-
 {% endfor %}
+
 </div>
 
 {% endblock %}

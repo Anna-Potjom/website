@@ -34,7 +34,7 @@ def category(type2):
 
     return render_template(
         "category.html",
-        receptes=receptes,
+        receptes=receptes
     )
 
 @app.route("/recepte/<int:id>")
@@ -88,6 +88,7 @@ def update_comment(comment_id):
         SET comment_text = ?, rating = ?
         WHERE id = ?
     """, (text, rating, comment_id))
+
     conn.commit()
     conn.close()
 

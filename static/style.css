@@ -408,3 +408,51 @@ a {
 .recipe-list form button:hover {
     background: #1b4332;
 }
+
+/* =========================
+   HEADER NAVIGATION UPGRADE
+========================= */
+
+/* HEADER LAYOUT */
+.header-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+/* center title */
+.header-title {
+    text-align: center;
+}
+
+.header-title a {
+    color: white;
+    text-decoration: none;
+    font-size: 60px;
+    font-weight: 800;
+}
+
+/* left side */
+.header-left {
+    justify-self: start;
+}
+
+/* right side */
+.header-right {
+    justify-self: end;
+}
+
+/* back button */
+.btn-back {
+    background: rgba(255,255,255,0.2);
+    padding: 8px 14px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.btn-back:hover {
+    background: rgba(255,255,255,0.35);
+}

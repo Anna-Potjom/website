@@ -9,15 +9,19 @@
 </head>
 <body>
     
-    <header>
-        <h1>Receptes</h1>
-        <nav>
-            <a href="/">Tavas iecienītākās receptes vienuviet</a>
-        </nav>
-    </header>
+    <header class="main-header">
+
+    <h1>Receptes</h1>
+    <p class="header-subtitle">
+        Tavas iecienītākās receptes vienuviet
+    </p>
+
+</header>
     <main class="main-content">
     {% block content %}{% endblock %}
     </main>
+
+
     
     <main1 class="grid">
     {% for kategorija in kategorijas %}
