@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 import sqlite3
 from pathlib import Path
 app = Flask(__name__)
@@ -41,7 +41,6 @@ def category(type2):
 def recepte(id):
     conn = get_db_connection()
 
-    # get ONE recipe
     recipe = conn.execute("""
         SELECT *
         FROM recipes
@@ -49,10 +48,15 @@ def recepte(id):
         WHERE recipes.id = ?
     """, (id,)).fetchone()
 
-    # get ingredients ONLY for this recipe
     ingredients = conn.execute("""
         SELECT *
         FROM ingredients
+        WHERE recipe_id = ?
+    """, (id,)).fetchall()
+
+    comments = conn.execute("""
+        SELECT *
+        FROM comments
         WHERE recipe_id = ?
     """, (id,)).fetchall()
 
@@ -61,9 +65,52 @@ def recepte(id):
     return render_template(
         "recepte.html",
         recipe=recipe,
-        ingredients=ingredients
+        ingredients=ingredients,
+        comments=comments
     )
-    
+
+@app.route("/comment/delete/<int:comment_id>", methods=["POST"])
+def delete_comment(comment_id):
+    conn = get_db_connection()
+    conn.execute("DELETE FROM comments WHERE id = ?", (comment_id,))
+    conn.commit()
+    conn.close()
+    return redirect(request.referrer)
+
+@app.route("/comment/update/<int:comment_id>", methods=["POST"])
+def update_comment(comment_id):
+    text = request.form["comment_text"]
+    rating = request.form["rating"]
+
+    conn = get_db_connection()
+    conn.execute("""
+        UPDATE comments
+        SET comment_text = ?, rating = ?
+        WHERE id = ?
+    """, (text, rating, comment_id))
+    conn.commit()
+    conn.close()
+
+    return redirect(request.referrer)
+
+@app.route("/comment/create", methods=["POST"])
+def create_comment():
+    recipe_id = request.form["recipe_id"]
+    user_id = request.form["user_id"]
+    text = request.form["comment_text"]
+    rating = request.form["rating"]
+
+    conn = get_db_connection()
+
+    conn.execute("""
+        INSERT INTO comments (recipe_id, user_id, comment_text, rating)
+        VALUES (?, ?, ?, ?)
+    """, (recipe_id, user_id, text, rating))
+
+    conn.commit()
+    conn.close()
+
+    return redirect(f"/recepte/{recipe_id}")
 
 if __name__ == "__main__":
     app.run(debug=True)

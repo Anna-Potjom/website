@@ -32,4 +32,34 @@
     </div>
 </div>
 
+
+<h3>Komentāri:</h3>
+<form action="/comment/create" method="POST">
+    <input type="hidden" name="recipe_id" value="{{ recipe['id'] }}">
+
+    <input type="text" name="user_id" placeholder="Tavs vārds" required>
+
+    <textarea name="comment_text" placeholder="Tavs komentārs..." required></textarea>
+
+    <label>Vērtējums (1-5):</label>
+    <input type="number" name="rating" min="1" max="5" required>
+
+    <button type="submit">Pievienot</button>
+</form>
+
+{% for comment in comments %}
+
+    <div class="comment-box">
+        <p><strong>{{ comment["user_id"] }}</strong></p>
+        <p>{{ comment["comment_text"] }}</p>
+        <p>{{ comment["rating"] }}/5</p>
+
+        <form action="/comment/delete/{{ comment['id'] }}" method="POST">
+            <button>Dzēst</button>
+        </form>
+
+    </div>
+
+{% endfor %}
+
 {% endblock %}
