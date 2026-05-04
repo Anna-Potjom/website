@@ -113,5 +113,9 @@ def create_comment():
 
     return redirect(f"/recepte/{recipe_id}")
 
+@app.route('/par-mums')
+def par():
+    return render_template('par-mums.html')
+
 if __name__ == "__main__":
     app.run(debug=True)

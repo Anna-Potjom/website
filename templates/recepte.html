@@ -57,14 +57,15 @@
         <p>{{ comment["comment_text"] }}</p>
         <p>{{ comment["rating"] }}/5</p>
 
-        <form action="/comment/delete/{{ comment['id'] }}" method="POST">
-            <button>Dzēst</button>
-        </form>
+        
 
         <form action="/comment/update/{{ comment['id'] }}" method="POST">
             <textarea name="comment_text">{{ comment["comment_text"] }}</textarea>
             <input type="number" name="rating" value="{{ comment["rating"] }}">
             <button>Labot</button>
+        </form>
+        <form action="/comment/delete/{{ comment['id'] }}" method="POST">
+            <button>Dzēst</button>
         </form>
 
     </div>
